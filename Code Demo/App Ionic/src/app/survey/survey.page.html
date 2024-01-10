@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start" (click)="openBrowser('https://www.j-grab.com/pages/about-showroom')">
+        <ion-icon name="information-circle-outline" class="icon-qrcode"></ion-icon>
+    </ion-buttons>
+      <ion-title >
+          <span class="centered-p">
+              <img src="assets/img/j-grabmall_logo.png" class="img-logo" alt="logo" srcset="">
+          </span>
+      </ion-title>
+      <ion-buttons slot="primary">
+          <ion-button expand='block' margin (click)="checkCamera()">
+              <ion-icon name="qr-code-sharp"  class="icon-qrcode"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <div>
+    <div class="row">
+      <div class="col-12">
+        <img src="assets/img/suuu.jpg" alt="" width="100%">
+      </div>
+    </div>
+    <div class="row border-123" >
+      <div class="col-12">
+
+        <div *ngFor="let form of formJgrab" >
+          <div *ngIf="form.active == 1 " class="border-1234">
+            <div (click)="setOpen(true)" (click)="setSrc(form.link)" expand="block"  class="border-12 ">
+              <ion-row>
+                <ion-col size="6">
+                  {{form.title}}
+                </ion-col>
+                <ion-col size="6" class="float-1" >
+                  <ion-icon name="open-outline"  ></ion-icon>
+                </ion-col>
+              </ion-row>             
+            </div>
+           
+            <ion-modal [isOpen]="isModalOpen">
+              <ng-template>
+                <ion-header style="background-color:white ;">
+                  <ion-toolbar style="background-color:white ;">
+                    <ion-buttons slot="start" >
+                      <ion-button (click)="setOpen(false)" class="text-modal" >
+                        <ion-icon name="arrow-back-circle-sharp" class="icon-qrcode"></ion-icon>
+                      </ion-button>
+                    </ion-buttons>
+                    <ion-title >
+                      <span class="centered-p">
+                          <img src="assets/img/j-grabmall_logo.png" class="img-logo" alt="logo" srcset="">
+                      </span>
+                    </ion-title>
+                    <ion-buttons slot="primary">
+                        <ion-button expand='block' margin (click)="checkCamera()">
+                            <ion-icon name="qr-code-sharp"  class="icon-qrcode"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                </ion-header>
+                <ion-content [fullscreen]="true"  style="background-color:white ;">
+                  <iframe width="100%"  height="100%" frameborder="0" marginheight="0" marginwidth="0" [src]="youtubeSrc">Loading…</iframe>
+                </ion-content>
+              </ng-template>
+            </ion-modal>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- <ion-list *ngFor="let form of formJgrab">
+    <ion-item *ngIf="form.active == 1 ">
+        <ion-label (click)="setOpen(true)" (click)="setSrc(form.link)" expand="block" >{{form.title}}</ion-label>
+        <ion-modal [isOpen]="isModalOpen">
+          <ng-template>
+            <ion-header>
+              <ion-toolbar>
+                <ion-buttons slot="start" >
+                  <ion-button (click)="setOpen(false)" class="text-modal" >
+                    <ion-icon name="arrow-back-circle-sharp" class="icon-qrcode"></ion-icon>
+                  </ion-button>
+                </ion-buttons>
+                <ion-title >
+                  <span class="centered-p">
+                      <img src="assets/img/j-grabmall_logo.png" class="img-logo" alt="logo" srcset="">
+                  </span>
+                </ion-title>
+                <ion-buttons slot="end">
+                  <ion-button expand='block' margin (click)="goToBarcodeScan()">
+                      <ion-icon name="qr-code-sharp"  class="icon-qrcode"></ion-icon>
+                  </ion-button>
+              </ion-buttons>
+              </ion-toolbar>
+            </ion-header>
+            <ion-content [fullscreen]="true" >
+              <iframe width="100%"  height="100%" frameborder="0" marginheight="0" marginwidth="0" [src]="youtubeSrc">Loading…</iframe>
+            </ion-content>
+          </ng-template>
+        </ion-modal>
+    </ion-item>   
+  </ion-list> -->
+</ion-content>

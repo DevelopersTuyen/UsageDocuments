@@ -1,0 +1,258 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-buttons slot="start" (click)="openBrowser('https://www.j-grab.com/pages/about-showroom')">
+            <ion-icon name="information-circle-outline" class="icon-qrcode"></ion-icon>
+        </ion-buttons>
+        <ion-title >
+            <span class="centered-p">
+                <img src="assets/img/j-grabmall_logo.png" class="img-logo" alt="" srcset="">
+            </span>
+        </ion-title>
+        <ion-buttons slot="primary" >
+            <ion-button expand='block' margin (click)="checkCamera()" >
+                <ion-icon name="qr-code-sharp"  class="icon-qrcode" ></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+
+    <div>
+        <ion-refresher slot="fixed" (ionRefresh)="getList($event)" class="red" >
+            <ion-refresher-content ></ion-refresher-content>
+        </ion-refresher>
+        <div class="img-top body">
+            <img src=" assets/img/IMG_51081.png" id="img1" class="img-responsive" (click)="openBrowser('https://www.j-grab.com/pages/about-showroom')">
+        </div>
+        <div class="contents-1">
+            <div class="logo-hearder">
+                <div class="row">
+                    <div class="col-xs-2  col-xl-2 column-logo-right padd-right" (click)="openBrowser('https://www.j-grab.com/blogs/news/tagged/showroomstore')">
+                        <img src="assets/img/icon_news.png" class="icon-qrcode-12" srcset="">
+                        <span class="text-logo-header">News</span>
+                    </div>
+
+                    <div class="col-xs-2 col-xl-2 column-logo-right" (click)="openBrowser('https://www.j-grab.com/collections/new-product')">
+                        <img src="assets/img/icon_new.png" class="icon-qrcode-12" srcset="">
+                       <span class="text-logo-header">New</span> 
+                    </div>
+                    <div class="col-xs-4 col-xl-4 center-logo" (click)="goToBarcodeScan()">
+                        <img src="assets/img/scanqrel.png" alt="">
+                    </div>
+                    <div class="col-xs-2 col-xl-2 column-logo-left" (click)="tab()">
+                        <!-- <ion-tab-button tab="tab2"> -->
+                            <img src="assets/img/icon_coupon.png" class="icon-qrcode-12" srcset="">
+                            <span class="text-logo-header">Coupon</span>
+                        <!-- </ion-tab-button>                        -->
+                    </div>
+                    <div class="col-xs-2 col-xl-2 column-logo-left padd-right-1" (click)="openBrowser('https://www.j-grab.com/blogs/news/tagged/japan-craze-magazine')">
+                        <img src="assets/img/icon_blog.png" class="icon-qrcode-12" srcset="">
+                        <span class="text-logo-header">Blog</span>
+                    </div>
+                </div>
+
+
+                <div class="row item-1">
+                    <div class="col-12">
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#carouselExampleCaptions"  *ngFor="let banner of Banner;let index = index" [attr.data-slide-to]="index"></li>
+                            </ol>
+                        
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item" *ngFor="let banner of Banner;let index = index;let isFirst = first" [ngClass]="{active:isFirst} "  >
+                                    <img src="{{banner.url_of_image}}" alt="Banner"   style="width:100%;height:130px; " (click)="openBrowser(banner.redirect_URL)">
+                                </div>
+                            </div>
+                        
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                              <span class="glyphicon glyphicon-chevron-left"></span>
+                              <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                              <span class="glyphicon glyphicon-chevron-right"></span>
+                              <span class="sr-only">Next</span>
+                            </a>
+                          </div>
+                    </div>
+                </div>
+
+
+                <div class="row item-1">
+
+                    <div class="col-xs-4 col-xl-4 padding-left-item" (click)="openBrowser('https://www.j-grab.com/pages/about-showroom')">
+                        <img src="assets/img/image_2023_03_16T02_52_05_755Z.png" alt="" class="img-content-2">
+                        <br>
+                        <p class="text-item-2">
+                           About <br>
+                           Showroom Store 
+                        </p>
+                    </div>
+                    <div class="col-xs-4 col-xl-4  padding-left-item" (click)="openBrowser('https://www.j-grab.com/blogs/news/tagged/showroomstore')">
+                        <img src="assets/img/image_2023_03_16T02_52_21_142Z.png" alt=""  class="img-content-2">
+                        <br>
+                        <p class="text-item-2">
+                            News From <br>
+                            Showroom Store 
+                        </p>
+                    </div>
+                    <div class="col-xs-4 col-xl-4 padding-left-item" (click)="openBrowser('https://www.j-grab.com/collections/new-product')">
+                        <img src="assets/img/image_2023_03_16T02_52_36_090Z.png" alt="" class="img-content-2">
+                        <br>
+                        <p class="text-item-2">
+                            j-Grab Mall <br>
+                            New Products
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="row item-1">
+                    <div class="col-xs-4 col-xl-4 padding-left-item" (click)="tab()">
+                        <img src="assets/img/image_2023_03_16T02_52_44_117Z.png" alt="" class="img-content-2">
+                        <br>
+                        <p class="text-item-2">
+                           Get <br>
+                           Coupon
+                        </p>
+                    </div>
+                    <div class="col-xs-4 col-xl-4  padding-left-item" (click)="openBrowser('https://www.j-grab.com/blogs/news/tagged/japan-craze-magazine')">
+                        <img src="assets/img/image_2023_03_16T02_52_47_930Z.png" alt=""  class="img-content-2">
+                        <br>
+                        <p class="text-item-2">
+                            JAPAN CRAZE <br>
+                            Magazine
+                        </p>
+                    </div>
+                    <div class="col-xs-4 col-xl-4 padding-left-item" (click)="tabSurrey()">
+                        <img src="assets/img/image_2023_03_16T02_52_52_937Z.png" alt="" class="img-content-2">
+                        <br>
+                        <p class="text-item-2">
+                            Take Our <br>
+                            Survey
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="textscan">
+                    <div class="border-bottom-item2">
+                        <span class="icon-qr"><ion-icon name="qr-code-outline"></ion-icon></span>
+                        <span class="text-scan">Scan History</span>
+                    </div>
+                </div>
+
+                <div class="qr-code-home">
+                    
+                    <ion-row *ngFor="let item of db.Dataqr" (click)="clickQr(item.id,item.text)" class="border-bottom">
+                        <ion-col class="ion-text-center "  size="4 " class="div-qr-code">
+                            <img src="https:{{item.cancelled}}" class ="img-qrcode" >
+                        </ion-col>
+                        <ion-col class="ion-text-left" size="8" (click)="openBrowser(item.text)" >
+                            <div class="date-qr-code">{{item.datetime}} <span class="icon-open-tab"><ion-icon name="open-outline"  (click)="openBrowser(item.text)"></ion-icon></span></div>
+                            
+                            <ion-label class="text-qr-code"  (click)="openBrowser(item.text)">{{item.format}}</ion-label>
+                        </ion-col>
+                    </ion-row>
+        
+                    <ion-row *ngFor="let users of QrCodeJgrabUser"  (click)="clickQr(users._id,users.url)" class="border-bottom2">
+                        <ion-col class="ion-text-center div-qr-code"  size="4 ">
+                            <img src="https:{{users.product_image}}" class ="img-qrcode" >
+                        </ion-col>
+                        <ion-col class="ion-text-left" size="8" (click)="openBrowser(users.url)" >
+                            <div class="date-qr-code">{{users.date_time}}<span class="icon-open-tab"><ion-icon name="open-outline"  (click)="openBrowser(users.url)"></ion-icon></span></div>
+                            
+                            <ion-label class="text-qr-code"  (click)="openBrowser(users.url)">{{users.product_name}}</ion-label>
+                        </ion-col>
+                    </ion-row>
+                </div>
+
+                <div class="row item-1">
+                    <div class="col-12 text-center " (click)="openBrowser('https://www.j-grab.com/collections/all')">
+                        <img src="assets/img/Screenshot_4.png" alt="" class="border-121">
+                    </div>
+                </div>
+
+                <div class="row item-1">
+                    <div class="row">
+                        <div class="col-xs-4 col-xl-4 padding-left-item"  (click)="openBrowser('https://www.facebook.com/japancrazejp')" >
+                            <img src="assets/img/Facebook_icon.png" alt="" class="img-content-3">
+                            <br>
+                            <!-- <ion-icon name="logo-facebook"  class="img-content-3"></ion-icon>
+                            <br> -->
+                            <p class="text-item-2">
+                               Japan Craze <br>
+                               On Facebook
+                            </p>
+                        </div>
+                        <div class="col-xs-4 col-xl-4  padding-left-item" (click)="openBrowser('https://www.instagram.com/japancraze.jp/')">
+                            <img src="assets/img/Instagram-Icon.png" alt=""  class="img-content-3">
+                            <br>
+                            <p class="text-item-2">
+                                Japan Craze <br>
+                                On Instagram
+                            </p>
+                        </div>
+                        <div class="col-xs-4 col-xl-4 padding-left-item" (click)="openBrowser('https://www.pinterest.jp/japancraze/')">
+                            <img src="assets/img/pin.png" alt="" class="img-content-3">
+                            <br>
+                            <p class="text-item-2">
+                                Japan Craze<br>
+                                On Pinterest
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- <ion-refresher slot="fixed" (ionRefresh)="getList($event)" class="red" >
+        <ion-refresher-content ></ion-refresher-content>
+    </ion-refresher>
+
+    <div class="body">
+        <div class="img-top">
+            <img src=" assets/img/showroom.png" id="img1" class="img-responsive" (click)="openBrowser('https://www.j-grab.com/pages/about-showroom')">
+        </div>
+        <div class="img-bottom">
+            <img src=" assets/img/storeoverview.png" id="img2" class="img-responsive" (click)="openBrowser('https://www.j-grab.com/pages/about-j-grab')" style="padding-right:10px;">
+
+            <img src=" assets/img/salescorner.png" id="img2" class="img-responsive" (click)="openBrowser('https://www.j-grab.com/collections/opening-sale')">
+        </div>
+        <div class="textscan">
+            <span class="icon-qr"><ion-icon name="qr-code-outline"></ion-icon></span>
+            <span class="text-scan">Scan History</span>
+        </div>
+        <div class="qr-code-home">
+            
+            <ion-row *ngFor="let item of db.Dataqr" (click)="openBrowser(item.text)" class="border-bottom">
+                <ion-col class="ion-text-center "  size="4 " class="div-qr-code">
+                    <img src="https:{{item.cancelled}}" class ="img-qrcode" >
+                </ion-col>
+                <ion-col class="ion-text-left" size="8">
+                    <div class="date-qr-code">{{item.datetime}} <span class="icon-open-tab"><ion-icon name="open-outline"  (click)="openBrowser(item.text)"></ion-icon></span></div>
+                    
+                    <ion-label class="text-qr-code"  (click)="openBrowser(item.text)">{{item.format}}</ion-label>
+                </ion-col>
+            </ion-row>
+
+            <ion-row *ngFor="let users of QrCodeJgrabUser" (click)="openBrowser(users.url)" class="border-bottom2">
+                <ion-col class="ion-text-center "  size="4 " class="div-qr-code">
+                    <img src="https:{{users.product_image}}" class ="img-qrcode" >
+                </ion-col>
+                <ion-col class="ion-text-left" size="8">
+                    <div class="date-qr-code">{{users.date_time}}<span class="icon-open-tab"><ion-icon name="open-outline"  (click)="openBrowser(users.url)"></ion-icon></span></div>
+                    
+                    <ion-label class="text-qr-code"  (click)="openBrowser(users.url)">{{users.product_name}}</ion-label>
+                </ion-col>
+            </ion-row>
+        </div>
+    </div> -->
+
+</ion-content>

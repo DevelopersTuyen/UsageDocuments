@@ -1,0 +1,73 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" (click)="openBrowser('https://www.j-grab.com/pages/about-showroom')">
+            <ion-icon name="information-circle-outline" class="icon-qrcode"></ion-icon>
+        </ion-buttons>
+        <ion-title >
+            <span class="centered-p">
+                <img src="assets/img/j-grabmall_logo.png" class="img-logo" alt="logo" srcset="">
+            </span>
+        </ion-title>
+        <ion-buttons slot="primary">
+            <ion-button expand='block' margin (click)="checkCamera()">
+                <ion-icon name="qr-code-sharp"  class="icon-qrcode"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="getList($event)" class="red">
+        <ion-refresher-content class="icon-color"></ion-refresher-content>
+    </ion-refresher>
+    <div class="body-coupons">
+        <ion-row *ngFor="let coupon of dataList ; index as i;" class=" listMargin" (click)="clickCoupon(coupon._id) ">
+            
+            
+            <img src="https:{{coupon.coupon_banner}} " class="button-1">
+            
+
+            <ion-col size="12" class="text-expiry margin-1" >
+                <span>{{coupon.coupon_expiry}}</span>
+            </ion-col>
+
+            <ion-col size="12 " class="text-title margin-1">
+                <span>{{coupon.coupon_title}}</span>
+            </ion-col>
+            
+            <ion-col size="12 " class="div-details " >
+                <div>
+                    <div  class="text-detail"(click)="ngIfCtrl(i) " class="text-detail-3 "> 
+                        <span  class="icon-dot2"> Show details </span>
+                        <span >
+                            <ion-icon name="ellipsis-vertical-outline" class="icon-dot"></ion-icon>
+                        </span>
+                    </div>
+                    <div  *ngIf="show[i] " class="div-details-2">
+                        <span  style="white-space:pre-wrap;">
+                            {{coupon.coupon_detail}}
+                            <p ng-bind-html-unsafe='coupon.coupon_details'> </p>
+                        </span>
+                    </div>    
+                </div>
+            </ion-col>
+
+            <ion-col size="12" (click)="copyString(coupon.coupon_code)" class="pd-12">
+                <div  class="border-code " >
+                    <span class="color-code" >{{coupon.coupon_code}}</span>
+                    <div class="text-right">
+                        <ion-icon name="copy-outline"></ion-icon>
+                    </div>
+                </div>
+            </ion-col>
+
+            <ion-col size="12 " class="title-1 ">
+            </ion-col>
+        </ion-row>
+
+        <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+            <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+            </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </div>
+    
+</ion-content>

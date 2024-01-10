@@ -1,0 +1,110 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" (click)="openBrowser('https://www.j-grab.com/pages/about-showroom')">
+          <ion-icon name="information-circle-outline" class="icon-qrcode"></ion-icon>
+        </ion-buttons>
+        <ion-title >
+            <span class="centered-p">
+                <img src="assets/img/j-grabmall_logo.png" class="img-logo" alt="" srcset="">
+            </span>
+        </ion-title>
+        <ion-buttons slot="primary" can-swipe-back="false">
+            <ion-button expand='block' margin (click)="checkCamera()">
+                <ion-icon name="qr-code-sharp"  class="icon-qrcode"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <!-- <ion-gird> -->
+        <ion-refresher slot="fixed" (ionRefresh)="getList($event)" class="red">
+            <ion-refresher-content></ion-refresher-content>
+        </ion-refresher>
+    <div class=" body"> 
+        <div class="textscan">
+            <span class="icon-qr"><ion-icon name="notifications"></ion-icon> Notification</span>
+            <!-- <span class="text-scan"> </span> -->
+        </div>
+
+        
+        <ion-list *ngFor="let noti2 of db.Datanotilocal" (click)="checkRead(noti2.id)" class="row-1" style="padding-left:0px;padding-right:0px;">
+            <ion-item-sliding>
+                <ion-item>
+                    <ion-row class="row-1">
+                        <ion-col class="ion-text-left " size="12">
+                            <span class="date-noti">{{noti2.date * 1000| date:"dd-MM-yyyy" }}</span> <br>
+                            <span style="font-size:13px;color:red; ">{{noti2.texts}}</span><br>
+                            <span style="font-size:13px;font-weight: bold;white-space: pre-line; " (click)="setSrc(noti2.body,true)">{{noti2.body}}</span><br>
+                            <!-- <span style="font-size:13px;font-weight: bold; ">{{noti2.read}}</span><br> -->
+                            <ion-modal [isOpen]="isModalOpen">
+                                <ng-template>
+                                  <ion-header>
+                                    <ion-toolbar>
+                                      <ion-buttons slot="start" >
+                                        <ion-button (click)="setOpen(false)" class="text-modal" >
+                                          <ion-icon name="arrow-back-circle-sharp" class="icon-qrcode"></ion-icon>
+                                          <!-- <ion-icon name="arrow-back-circle-sharp" class="icon-qrcode-1"></ion-icon> -->
+                                        </ion-button>
+                                      </ion-buttons>
+                                      <ion-title >
+                                        <span class="centered-p">
+                                            <img src="assets/img/logo.png" class="img-logo" alt="logo" srcset="">
+                                        </span>
+                                      </ion-title>
+                                      <ion-buttons slot="end">
+                                        <ion-button expand='block' margin (click)="goToBarcodeScan()">
+                                            <ion-icon name="qr-code-sharp"  class="icon-qrcode"></ion-icon>
+                                        </ion-button>
+                                    </ion-buttons>
+                                    </ion-toolbar>
+                                  </ion-header>
+                                  <ion-content [fullscreen]="true" >
+                                    <iframe width="100%"  height="100%" frameborder="0" marginheight="0" marginwidth="0" [src]="youtubeSrc">Loading…</iframe>
+                                  </ion-content>
+                                </ng-template>
+                              </ion-modal>
+                        </ion-col>
+                    </ion-row>
+                  <!-- <ion-label>
+                    <span class="date-noti">{{noti2.date * 1000| date:"dd-MM-yyyy" }}</span> <br>
+                    <span style="font-size:13px;color:red; ">{{noti2.body}}</span><br>
+                    <span style="font-size:13px;font-weight: bold; ">{{noti2.texts}}</span><br>
+                  </ion-label> -->
+                </ion-item>
+                <ion-item-options>
+                  <ion-item-option color="danger" (click)="DeleteNoti(noti2.id)">
+                    <ion-icon slot="icon-only" name="trash" (click)="DeleteNoti(noti2.id)"></ion-icon>
+                  </ion-item-option>
+                </ion-item-options>
+              </ion-item-sliding>
+        </ion-list>
+
+        <!-- <ion-row *ngFor="let noti2 of db.Datanotilocal" (click)="checkRead(noti2.id)" class="row-1"> -->
+            <!-- <ion-col class="ion-text-center " size="1" #second *ngIf="noti2.read == 0;">
+                <span style=" font-size:30px;font-weight:bold;text-align: center; ">.</span>
+            </ion-col> -->
+            <!-- <ion-col class="ion-text-left " size="12">
+                <span class="date-noti">{{noti2.date * 1000| date:"dd-MM-yyyy" }}</span> <br>
+                <span style="font-size:13px;color:red; ">{{noti2.body}}</span><br>
+                <span style="font-size:13px;font-weight: bold; ">{{noti2.texts}}</span><br>
+            </ion-col>
+        </ion-row> -->
+
+        <ion-row *ngIf="db.DatanotilocalOne?.length > 0 ">
+            <ion-row *ngFor="let noti1 of db.DatanotilocalOne" (click)="checkRead(noti1.id)" class="row-1">
+                <!-- <ion-col class="ion-text-center " size="1" #second *ngIf="noti1.opened == 0;">
+                    <span style=" font-size:30px;font-weight:bold;text-align: center; ">.</span>
+                </ion-col> -->
+                <!-- class="ion-text-left " size="11 " -->
+                
+                <ion-col >
+                    
+                    <span class="date-noti">{{noti1.created_time * 1000| date:"dd-MM-yyyy"}}</span> <br>
+                    <span class="title">{{noti1.title}}</span><br>
+                    <p class="messeage">{{noti1.message}}</p>
+                </ion-col>
+            </ion-row>
+        </ion-row>
+    </div>
+</ion-content>

@@ -1,0 +1,61 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" (click)="openBrowser('https://www.j-grab.com/pages/about-showroom')">
+            <ion-icon name="information-circle-outline" class="icon-qrcode"></ion-icon>
+        </ion-buttons>
+        <ion-title >
+            <span class="centered-p">
+                <img src="assets/img/j-grabmall_logo.png" class="img-logo" alt="logo" srcset="">
+            </span>
+        </ion-title>
+        <ion-buttons slot="primary">
+            <ion-button expand='block' margin (click)="checkCamera()">
+                <ion-icon name="qr-code-sharp"  class="icon-qrcode"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+    <ion-list class="body">
+        <ion-item>
+            <div style="display:none;" [innerHtml]="newContent"></div>
+          
+            <span class="login1 text-menu" (click)="openBrowser('https://www.j-grab.com/account/login')"> 
+                <ion-icon name="person"></ion-icon>
+                Account information 
+            </span>
+
+            <span class="login2 text-menu" (click)="openBrowser('https://www.j-grab.com/account')" >
+                <ion-icon name="person"></ion-icon>
+                Account information
+            </span>
+        </ion-item>
+
+        <ion-item>
+            <ion-icon name="document-text" size="small"></ion-icon>
+            <ion-label expand="block" routerLink="ter-of-service" class="text-menu">Term of Service</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="shield-checkmark" size="small"></ion-icon>
+            <ion-label expand="block" routerLink="privacy-policy"class="text-menu">Privacy policy</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="qr-code" size="small"></ion-icon>
+            <ion-label expand="block" routerLink="historyqr" class="text-menu">Scan History</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="help-circle" size="small"></ion-icon>
+            <ion-label (click)="openBrowser('https://www.j-grab.com/pages/contact')" class="text-menu">Inquiries Function</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="mail" size="small"></ion-icon>
+            <ion-label (click)="openBrowser('https://www.j-grab.com/pages/request')" class="text-menu">Product Requests</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="chatbubble-ellipses-outline" size="small"></ion-icon>
+            <ion-label expand="block" routerLink="survey"  class="text-menu">Take Our Survey</ion-label>
+        </ion-item>
+    </ion-list>
+</ion-content>

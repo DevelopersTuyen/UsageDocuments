@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+
+    <ion-buttons slot="start" (click)="openBrowser('https://www.j-grab.com/pages/about-showroom')">
+        <ion-icon name="information-circle-outline" class="icon-qrcode"></ion-icon>
+    </ion-buttons>
+    <ion-toolbar>
+        <ion-title >
+            <span class="centered-p">
+                <img src="assets/img/j-grabmall_logo.png" class="img-logo" alt="" srcset="">
+            </span>
+        </ion-title>
+        <ion-buttons slot="primary">
+            <ion-button expand='block' margin (click)="checkCamera()">
+                <ion-icon name="qr-code-sharp"  class="icon-qrcode"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-refresher slot="fixed" (ionRefresh)="getList($event)" class="red">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <div class="body">
+        <!-- <ion-gird> -->
+           
+            <div class="textscan">
+                <span class="icon-qr"><ion-icon name="qr-code-outline"></ion-icon></span>
+                <span class="text-scan">Scan History</span>
+            </div>
+            <ion-row *ngFor="let item of db.Dataqr"   (click)="clickQr(item.id)" class="border-bottom">
+                <ion-col class="ion-text-center "  size="4 " class="div-qr-code">
+                    <img src="https:{{item.cancelled}}" class ="img-qrcode" >
+                </ion-col>
+                <ion-col class="ion-text-left" size="8" (click)="openBrowser(item.text)">
+                    <div class="date-qr-code">{{item.datetime}} <span class="icon-open-tab"><ion-icon name="open-outline"  (click)="openBrowser(item.text)"></ion-icon></span></div>
+                    
+                    <ion-label class="text-qr-code"  (click)="openBrowser(item.text)">{{item.format}}</ion-label>
+                </ion-col>
+            </ion-row>
+            
+            <ion-row *ngFor="let users of QrCodeJgrabUser"  (click)="clickQr(users._id)" class="border-bottom2">
+                <ion-col class="ion-text-center "  size="4 " class="div-qr-code">
+                    <img src="https:{{users.product_image}}" class ="img-qrcode" >
+                </ion-col>
+                <ion-col class="ion-text-left" size="8" (click)="openBrowser(users.url)">
+                    <div class="date-qr-code">{{users.date_time}}<span class="icon-open-tab"><ion-icon name="open-outline"  (click)="openBrowser(users.url)"></ion-icon></span></div>
+                    
+                    <ion-label class="text-qr-code"  (click)="openBrowser(users.url)">{{users.product_name}}</ion-label>
+                </ion-col>
+            </ion-row>
+        <!-- </ion-gird> -->
+    </div>
+</ion-content>

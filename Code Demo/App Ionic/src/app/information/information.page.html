@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" (click)="openBrowser('https://www.j-grab.com/pages/about-showroom')">
+            <ion-icon name="information-circle-outline" class="icon-qrcode"></ion-icon>
+        </ion-buttons>
+        <ion-title>
+            information
+        </ion-title>
+        <!-- <ion-icon slot="end" name="analytics"></ion-icon> -->
+        <ion-buttons slot="start">
+            <ion-buttons slot="start">
+                <ion-back-button defaultHref="/tabs/setting"></ion-back-button>
+            </ion-buttons>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+    <div style="display:none;" [innerHtml]="newContent"></div>
+    <ion-button color="primary" class="login1" (click)="openBrowser('https://www.j-grab.com/account/login')">Login</ion-button>
+    <ion-button color="success" class="login1" (click)="openBrowser('https://www.j-grab.com/account/register')">Create your account</ion-button>
+
+    <ion-button color="warning" class="login2" (click)="openBrowser('https://www.j-grab.com/account')">Account Information</ion-button>
+    <!-- <ion-label class="login1" (click)="openBrowser('https://www.j-grab.com/account/register')">Create your account</ion-label>
+
+    <ion-label class="login2" (click)="openBrowser('https://www.j-grab.com/account')">Account Information</ion-label> -->
+
+</ion-content>

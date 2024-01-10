@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "117508238128",
+    "project_id": "add-qr-189ce",
+    "storage_bucket": "add-qr-189ce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:117508238128:android:7aeb07679aaa282acdf6f5",
+        "android_client_info": {
+          "package_name": "com.positronx.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "117508238128-ak9mdefcd2qjsn4q9cmiqdvmvcsi23a8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArfmYAOfW7Yz_gsazxxrLcga2dhZzXxcw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "117508238128-ak9mdefcd2qjsn4q9cmiqdvmvcsi23a8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "117508238128-016fn0c230ooq3na88legrrij9lk13gg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.positronx.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,144 @@
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.body{
+    padding: 10px 15px 0 10px;
+    position: relative;
+    font-family: 'Century Gothic';
+    font-style: normal;
+}
+.row-1 {
+    // border-bottom: 1px #a6a6a6 solid;
+    width: 100%;
+    padding: 10px 10px 0 10px;
+}
+.title{
+    font-family: 'Century Gothic';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 128.91%;
+    /* identical to box height, or 21px */
+    /* #CC0D21 */
+    color: #CC0D21;
+}
+.date-noti{
+    font-family: 'Century Gothic';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 128.91%;
+    /* identical to box height, or 15px */
+
+
+    /* Text Color */
+
+    color: rgba(0, 0, 0, 0.87);
+}
+.messeage{
+    font-family: 'Century Gothic';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 130%;
+    /* or 16px */
+    /* Text Color */
+    color: rgba(0, 0, 0, 0.87);
+    padding-top: 11px;
+}
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.size-icon {
+    width: 70px;
+    height: 70px;
+}
+
+.popup {
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.popup1 {
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: 18px;
+    // color: red;
+}
+
+.popup2 {
+    position: fixed;
+    top: 48%;
+    left: 10%;
+    right: 10%;
+    text-align: center;
+    // -webkit-transform: translate(-50%, -50%);
+    // transform: translate(-50%, -50%);
+    font-size: 13px;
+    // color: red;
+}
+
+.color-12 {
+    color: white;
+}
+.icon-qrcode{
+    width: 30px;
+    height:30px;
+    color: black;
+}
+.img-logo{
+    width: 150px;
+    height:120px;
+}
+ion-title { text-align: center !important; }
+.md .centered-p {
+    margin-right: -15%;
+}
+.icon-qr{
+    // font-size: 20px;
+    font-family: 'Century Gothic';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+}
+.textscan {
+    padding: 10px 0 10px 0;
+    border-bottom: 2px solid #b3b3b3;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 128.91%;
+    /* identical to box height, or 21px */
+    text-transform: capitalize;
+    /* Text Color */
+    color: rgba(0, 0, 0, 0.87);
+    position: relative;
+}
